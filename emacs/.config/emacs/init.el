@@ -142,3 +142,14 @@
                         (setq-local corfu-quit-at-boundary t
                                     corfu-quit-no-match t
                                     corfu-auto nil))))
+
+(use-package cape
+  :ensure t
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-abbrev)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-dict)
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-tex)
+  :config
+  (setq cape-dabbrev-check-other-buffers nil))
