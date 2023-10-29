@@ -73,3 +73,15 @@
   (setq auto-save-default t
         auto-save-timeout 60
         auto-save-interval 200))
+                                        ; server
+(use-package windmove
+  ;; replace this with the tm/functions and new vm
+  :bind (:map global-map
+              (("C-M-s-f" . windmove-swap-states-right)
+               ("C-M-s-p" . windmove-swap-states-up)
+               ("C-M-s-b" . windmove-swap-states-left)
+               ("C-M-s-n" . windmove-swap-states-down)
+               ("C-s-f" . windmove-right)
+               ("C-s-p" . windmove-up)
+               ("C-s-b" . windmove-left)
+               ("C-s-n" . windmove-down))))
