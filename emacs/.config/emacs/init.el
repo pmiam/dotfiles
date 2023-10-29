@@ -15,3 +15,15 @@
 (when (not (package-installed-p 'use-package))
   (package-refresh-contents)
   (package-install 'use-package))
+					; user experience
+(use-package doom-themes
+  :ensure t
+  :config
+  (load-theme 'doom-dark+ t))
+
+(use-package emacs
+  :config
+  ;; (setq scroll-conservatively 5)
+  (column-number-mode 1)
+  (setq visible-bell t)
+  (setq inhibit-startup-screen t))
