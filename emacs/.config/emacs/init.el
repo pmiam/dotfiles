@@ -85,7 +85,7 @@
                ("C-s-p" . windmove-up)
                ("C-s-b" . windmove-left)
                ("C-s-n" . windmove-down))))
-					; completion and correction framework
+					; completion framework
 (use-package vertico
   :ensure t
   :init
@@ -153,3 +153,21 @@
   (add-to-list 'completion-at-point-functions #'cape-tex)
   :config
   (setq cape-dabbrev-check-other-buffers nil))
+					; spell checking
+(use-package jinx
+  ;; use libenchant to talk to hunspell
+  :ensure t
+  :hook (emacs-startup . global-jinx-mode)
+  :bind (("M-$" . jinx-correct)
+         ("C-M-$" . jinx-languages)))
+
+(use-package flyspell-correct
+  ;; avoid cursor slowdown
+  :after flyspell
+  :config
+  (unbind-key "C-;" flyspell-mode-map)
+  :bind (:map flyspell-mode-map
+              (("C-,"   . flyspell-auto-correct-word)
+               ("C-."   . flyspell-goto-next-error)
+               ("C-M-;" . flyspell-buffer)
+               ("C-M-i" . nil))))
