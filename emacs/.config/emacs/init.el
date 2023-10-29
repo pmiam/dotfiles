@@ -85,3 +85,42 @@
                ("C-s-p" . windmove-up)
                ("C-s-b" . windmove-left)
                ("C-s-n" . windmove-down))))
+					; completion and correction framework
+(use-package vertico
+  :ensure t
+  :init
+  (vertico-mode 1)
+  (setq vertico-scroll-margin 0
+        vertico-count 20
+        vertico-resize nil)
+  :custom
+  (vertico-cycle t)
+  :bind (:map vertico-map
+	      ;; minibuffer local
+              (("C-n" . vertico-next)
+               ("C-p" . vertico-previous)
+               ("M-w" . vertico-save)
+               ("M-<" . vertico-first)
+               ("M->" . vertico-last)
+               ("M-{" . vertico-previous-group)
+               ("M-}" . vertico-next-group)
+               ("TAB" . vertico-insert)
+               ("RET" . vertico-exit)
+               ("M-RET" . vertico-exit-input))))
+
+(use-package corfu
+  :ensure t
+  :init
+  (global-corfu-mode 1)
+  :config
+  (setq corfu-auto t
+        corfu-auto-prefix 2
+        corfu-quit-at-boundary t
+        corfu-auto-delay 0
+        corfu-cycle t
+        corfu-preselect-first nil)
+  (unbind-key "RET" corfu-map)
+  :hook (shell-mode . (lambda ()
+                        (setq-local corfu-quit-at-boundary t
+                                    corfu-quit-no-match t
+                                    corfu-auto nil))))
