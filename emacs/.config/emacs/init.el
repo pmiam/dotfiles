@@ -181,6 +181,12 @@
 					; interactive command framework
 (use-package consult
   :ensure t
+  :init
+  (defun pm/make-case-sensitive (orig-fun &rest args)
+    (let ((case-fold-search nil))
+      (apply orig-fun args)))
+
+  (advice-add 'consult-grep :around #'make-case-sensitive)
   :bind (:map global-map
               ("C-s" . consult-line)
 	      ("M-s g" . consult-grep)
