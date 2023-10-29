@@ -108,6 +108,24 @@
                ("RET" . vertico-exit)
                ("M-RET" . vertico-exit-input))))
 
+(use-package orderless
+  :ensure t
+  :init
+  (setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        ;; For tramp:
+        completion-category-overrides '((file (styles basic partial-completion))))
+  (setq read-file-name-completion-ignore-case t
+        read-buffer-completion-ignore-case t
+        completion-ignore-case t))
+
+(use-package marginalia
+  :ensure t
+  :init
+  (marginalia-mode)
+  :bind (:map minibuffer-local-map
+              (("M-a" . marginalia-cycle))))
+
 (use-package corfu
   :ensure t
   :init
