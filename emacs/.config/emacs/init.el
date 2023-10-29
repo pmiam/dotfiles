@@ -153,6 +153,13 @@
   (add-to-list 'completion-at-point-functions #'cape-tex)
   :config
   (setq cape-dabbrev-check-other-buffers nil))
+
+(use-package abbrev
+  :config
+  (abbrev-mode t)
+  (setq save-abbrevs 'silently))
+
+(use-package eglot)
 					; spell checking
 (use-package jinx
   ;; use libenchant to talk to hunspell
