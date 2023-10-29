@@ -27,3 +27,17 @@
   (column-number-mode 1)
   (setq visible-bell t)
   (setq inhibit-startup-screen t))
+					; user interface
+(use-package emacs
+  :config
+  (setq skeleton-pair t)
+  :bind (:map global-map
+              (("C-S-d" . backward-delete-char-untabify)
+               ("C-%" . replace-regexp)
+               ("(" . skeleton-pair-insert-maybe)
+               ("[" . skeleton-pair-insert-maybe)
+               ("{" . skeleton-pair-insert-maybe)
+               ("\"" . skeleton-pair-insert-maybe))))
+
+(global-set-key (kbd "C-z") 'ignore)
+(global-set-key (kbd "C-x C-z") 'ignore)
