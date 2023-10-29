@@ -178,3 +178,11 @@
                ("C-."   . flyspell-goto-next-error)
                ("C-M-;" . flyspell-buffer)
                ("C-M-i" . nil))))
+					; interactive command framework
+(use-package consult
+  :ensure t
+  :bind (:map global-map
+              ("C-s" . consult-line)
+	      ("M-s g" . consult-grep)
+              ("M-s G" . consult-git-grep)
+              ("M-s r" . consult-ripgrep)))
