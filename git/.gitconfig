@@ -1,0 +1,7 @@
+[user]
+	email = ***REMOVED***
+	name = Panayotis Manganaris
+[credential]
+	helper = cache
+[init]
+	defaultBranch = master
