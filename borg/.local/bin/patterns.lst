@@ -1,0 +1,8 @@
+# Define the recursion root
+R ***REMOVED***/
+# Exclude all nas links in any directory
+- **/nas
+# Explicitly include
++ org/**
++ dat/**
++ doc/**
