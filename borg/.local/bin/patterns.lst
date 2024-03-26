@@ -1,8 +1,12 @@
-# Define the recursion root
-R ***REMOVED***/
-# Exclude all nas links in any directory
+R ***REMOVED***/org
++ **/.git
+- **/.?*
+R ***REMOVED***/doc
+- **/.?*
+R ***REMOVED***/dsk
+R ***REMOVED***/pic
 - **/nas
-# Explicitly include
-+ org/**
-+ dat/**
-+ doc/**
+R ***REMOVED***/vid
+- **/nas
+R ***REMOVED***/mus
+- **/nas
