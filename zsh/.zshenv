@@ -1,3 +1,8 @@
+export HISTFILE=~/.zhistory
+export HIST_IGNORE_DUPS=1
+export HISTSIZE=1000
+export SAVEHIST=10000
+
 declare -U PATH path
 declare -U FPATH fpath
 
