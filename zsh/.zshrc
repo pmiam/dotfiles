@@ -20,6 +20,10 @@ unsetopt beep
 autoload -Uz compinit
 compinit
 
+if [[ -x $commands[fzf] ]]; then
+    source <(fzf --zsh)
+fi
+
 if [[ -x $commands[direnv] ]]; then
     eval "$(direnv hook zsh)"
 fi
