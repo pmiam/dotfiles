@@ -1,7 +1,13 @@
 text-mode :when git-commit-mode
 
-(feat "[FEAT]")
+(feature "[FEAT]")
+(enhancement "[ENHANCE]")
+(ux "[UX]")
 (fix "[FIX]")
 (bugfix "[BUGFIX]")
-(docs "[DOCS]")
+(documents "[DOCS]")
+(test "[TEST]")
 (chore "[CHORE]")
+(cleanup "[CLEAN]")
+(deprecate "[DEPRECATE]")
+(breaking "[BREAK]")
