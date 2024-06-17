@@ -23,3 +23,6 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # relocate directories not compliant with XDG spec
 export GNUPGHOME=${GNUPGHOME:="$XDG_CONFIG_HOME/gnupg"}
+export GOPATH=${GOPATH:="$XDG_DATA_HOME"/go}
+export GOMODCACHE=${GOMODCACHE:="$XDG_CACHE_HOME"/go-mod}
+export GOBIN=${GOBIN:="$HOME/.local/bin"}
