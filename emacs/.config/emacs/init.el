@@ -139,6 +139,10 @@ daemon can run at startup and it'll still work"
   (auto-save-interval 200)
   :ensure nil)
                                         ; user interface
+(use-package ledger-mode
+  :mode "\\.lgr"
+  :ensure t)
+
 (use-package go-ts-mode
   :after treesit
   :mode "\\.go"
