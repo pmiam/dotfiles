@@ -19,6 +19,9 @@ if [[ -x $commands[fzf] ]]; then
     source <(fzf --zsh)
 fi
 
+# Aliases
+alias lgr="hledger"
+
 if [[ -x $commands[direnv] ]]; then
     eval "$(direnv hook zsh)"
 fi
