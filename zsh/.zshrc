@@ -19,7 +19,7 @@ if [[ -x $commands[fzf] ]]; then
     source <(fzf --zsh)
 fi
 
-# Aliases
+# aliases
 alias lgr="hledger"
 
 if [[ -x $commands[direnv] ]]; then
