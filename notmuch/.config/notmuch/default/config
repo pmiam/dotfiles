@@ -64,6 +64,7 @@ tags=unread;
 #
 
 [search]
+exclude_tags=deleted;
 
 # Maildir compatibility configuration
 #
@@ -87,6 +88,5 @@ tags=unread;
 #	commands will notice tag changes and update flags in filenames
 #
 
-exclude_tags=deleted;
-
 [maildir]
+synchronize_flags=true
