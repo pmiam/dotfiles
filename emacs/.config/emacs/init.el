@@ -921,9 +921,7 @@ cookie."
   :after comp-run
   :init
   (add-to-list 'native-comp-jit-compilation-deny-list "notmuch")
-  :bind (:map global-map
-              ("C-x m" . notmuch)
-              ("C-x C-m" . notmuch-mua-new-mail))
+  :bind (("C-x m" . notmuch))
   :ensure (:pre-build
            (("make" "IS_GIT=no" "emacs/notmuch-version.el"))
            :version
