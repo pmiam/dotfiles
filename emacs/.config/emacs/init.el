@@ -918,6 +918,9 @@ cookie."
   :ensure t)
                                         ; communication
 (use-package notmuch
+  :after comp-run
+  :init
+  (add-to-list 'native-comp-jit-compilation-deny-list "notmuch")
   :bind (:map global-map
               ("C-x m" . notmuch)
               ("C-x C-m" . notmuch-mua-new-mail))
@@ -928,6 +931,7 @@ cookie."
              notmuch-emacs-version)))
 
 (use-package ol-notmuch
+  :after notmuch
   :ensure t)
                                         ; documentation
 (use-package man
