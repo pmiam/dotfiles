@@ -141,6 +141,13 @@ daemon can run at startup and it'll still work"
                                         ; user interface
 (use-package ledger-mode
   :mode "\\.lgr"
+  :custom
+  (ledger-default-date-format ledger-iso-date-format)
+  (ledger-post-amount-alignment-column 50)
+  (ledger-post-amount-alignment-at :decimal)
+  :config
+  (add-hook 'ledger-mode-hook (lambda () (setq-local comment-inline-offset 2)))
+  (add-hook 'ledger-mode-hook (lambda () (setq-local comment-column 55)))
   :ensure t)
 
 (use-package go-ts-mode
