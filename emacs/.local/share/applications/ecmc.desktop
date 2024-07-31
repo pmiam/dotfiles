@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=ec -e '(message-mailto "%u")'
+Name=message-mailto
+Comment=designate emacs message as system mailer
+MimeType=message/rfc822;x-scheme-handler/mailto;message/mid
