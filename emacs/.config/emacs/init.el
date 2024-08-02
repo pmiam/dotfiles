@@ -930,6 +930,8 @@ cookie."
   (add-to-list 'native-comp-jit-compilation-deny-list "notmuch")
   :custom
   (notmuch-search-oldest-first nil)
+  :custom-face
+  (notmuch-wash-cited-text ((t (:foreground "lightblue"))))
   :bind (("C-x m" . notmuch))
   :ensure (:pre-build
            (("make" "IS_GIT=no" "emacs/notmuch-version.el"))
