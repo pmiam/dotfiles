@@ -928,6 +928,8 @@ cookie."
   :after comp-run
   :init
   (add-to-list 'native-comp-jit-compilation-deny-list "notmuch")
+  :custom
+  (notmuch-search-oldest-first nil)
   :bind (("C-x m" . notmuch))
   :ensure (:pre-build
            (("make" "IS_GIT=no" "emacs/notmuch-version.el"))
