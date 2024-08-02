@@ -51,7 +51,7 @@ other_email=***REMOVED***;***REMOVED***;panosm@purdue.alumni.edu;
 #
 
 [new]
-tags=unread;
+tags=unread;inbox
 
 # Search configuration
 #
@@ -64,7 +64,7 @@ tags=unread;
 #
 
 [search]
-exclude_tags=deleted;
+exclude_tags=deleted;spam
 
 # Maildir compatibility configuration
 #
