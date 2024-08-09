@@ -930,6 +930,7 @@ cookie."
   (add-to-list 'native-comp-jit-compilation-deny-list "notmuch")
   :custom
   (notmuch-search-oldest-first nil)
+  (notmuch-always-prompt-for-sender t)
   :custom-face
   (notmuch-wash-cited-text ((t (:foreground "lightblue"))))
   :bind (("C-x m" . notmuch))
@@ -942,6 +943,19 @@ cookie."
 (use-package ol-notmuch
   :after notmuch
   :ensure t)
+
+(use-package message
+  :after notmuch
+  :config
+  (add-hook 'message-setup-hook
+            '(lambda ()
+               (save-excursion
+                 (message-goto-from)
+                 (push-mark)
+                 (beginning-of-line)
+                 (delete-region (point) (mark))
+                 (message-insert-header 'from (notmuch-mua-prompt-for-sender)))))
+  :ensure nil)
                                         ; documentation
 (use-package man
   :custom
