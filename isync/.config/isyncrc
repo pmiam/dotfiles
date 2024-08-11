@@ -1,0 +1,24 @@
+SyncState *
+CopyArrivalDate yes
+MaxMessages 10
+
+IMAPStore gmail-remote
+Host imap.gmail.com
+Port 993
+TLSType IMAPS
+AuthMechs XOAUTH2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+User ***REMOVED***
+PassCmd poauth2.py\ ~/test.token
+
+MaildirStore gmail-local
+Subfolders Verbatim
+Path ~/mail/
+Inbox ~/mail/gmail-panos
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+Patterns * # Drafts "Sent Mail" Spam Trash
+Create Both
+Expunge Both
