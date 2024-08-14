@@ -1,7 +1,8 @@
 text-mode :when git-commit-mode
 
 (feature "[FEAT]")
-(enhancement "[ENHANCE]")
+(enhancement "[ITER]")
+(iteration "[ITER]")
 (ux "[UX]")
 (fix "[FIX]")
 (bugfix "[BUGFIX]")
