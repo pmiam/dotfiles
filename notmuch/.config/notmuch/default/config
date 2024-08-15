@@ -12,7 +12,7 @@
 #
 
 [database]
-path=***REMOVED***/.local/share/evolution/mail/local
+path=***REMOVED***/mail
 
 # User configuration
 #
