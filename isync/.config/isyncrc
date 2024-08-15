@@ -2,7 +2,7 @@ SyncState *
 CopyArrivalDate yes
 MaxMessages 10
 
-IMAPStore gmail-panos-remote
+IMAPStore gpm-far
 Host imap.gmail.com
 Port 993
 TLSType IMAPS
@@ -11,7 +11,7 @@ CertificateFile /etc/ssl/certs/ca-certificates.crt
 User ***REMOVED***
 PassCmd poauth2.py\ ~/test.token
 
-MaildirStore gmail-panos-local
+MaildirStore gpm-near
 Subfolders Verbatim
 Path ~/mail/
 
