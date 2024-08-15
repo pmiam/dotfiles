@@ -12,7 +12,7 @@
 #
 
 [database]
-path=/home/panos/.local/share/evolution/mail/local
+path=/home/panos/mail
 
 # User configuration
 #
