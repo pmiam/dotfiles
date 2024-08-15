@@ -1,6 +1,4 @@
-SyncState *
 CopyArrivalDate yes
-MaxMessages 10
 
 IMAPStore gpm-far
 Host imap.gmail.com
