@@ -14,11 +14,9 @@ PassCmd poauth2.py\ ~/test.token
 MaildirStore gmail-panos-local
 Subfolders Verbatim
 Path ~/mail/
-Inbox ~/mail/gmail-panos
 
-Channel gmail-panos
-Far :gmail-panos-remote:
-Near :gmail-panos-local:
-Patterns * # Drafts "Sent Mail" Spam Trash
+Channel gpm
+Far :gpm-far:"[Gmail]/All Mail"
+Near :gpm-near:gmail
 Create Both
 Expunge Both
