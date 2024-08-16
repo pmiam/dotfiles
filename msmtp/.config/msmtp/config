@@ -10,4 +10,12 @@ port 587
 from panos.manganaris@gmail.com
 auth oauthbearer
 user panos.manganaris@gmail.com
-passwordeval "poauth2.py ~/test.token"
+passwordeval "poauth2.py ~/gpm.token"
+
+account palm
+host smtp.office365.com
+port 587
+from panosm@alumni.purdue.edu
+auth xoauth2
+user panosm@alumni.purdue.edu
+passwordeval "poauth2.py ~/palm.token"
