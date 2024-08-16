@@ -1,0 +1,13 @@
+defaults
+tls on
+tls_starttls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile -
+
+account gpm
+host smtp.gmail.com
+port 587
+from ***REMOVED***
+auth oauthbearer
+user ***REMOVED***
+passwordeval "poauth2.py ~/test.token"
