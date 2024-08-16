@@ -10,4 +10,12 @@ port 587
 from ***REMOVED***
 auth oauthbearer
 user ***REMOVED***
-passwordeval "poauth2.py ~/test.token"
+passwordeval "poauth2.py ~/gpm.token"
+
+account palm
+host smtp.office365.com
+port 587
+from ***REMOVED***
+auth xoauth2
+user ***REMOVED***
+passwordeval "poauth2.py ~/palm.token"

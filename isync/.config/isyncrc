@@ -7,7 +7,7 @@ TLSType IMAPS
 AuthMechs XOAUTH2
 CertificateFile /etc/ssl/certs/ca-certificates.crt
 User ***REMOVED***
-PassCmd poauth2.py\ ~/test.token
+PassCmd poauth2.py\ ~/gpm.token
 
 MaildirStore gpm-near
 Subfolders Verbatim
@@ -15,6 +15,6 @@ Path ~/mail/
 
 Channel gpm
 Far :gpm-far:"[Gmail]/All Mail"
-Near :gpm-near:gmail
+Near :gpm-near:gpm
 Create Both
 Expunge Both
