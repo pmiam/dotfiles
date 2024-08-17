@@ -948,6 +948,10 @@ cookie."
 
 (use-package message
   :custom
+  (send-mail-function 'sendmail-send-it)
+  (sendmail-program "msmtp")
+  (message-sendmail-extra-arguments '("-t" "--read-envelope-from"))
+  (message-sendmail-f-is-evil t)
   (message-directory (expand-file-name "mail" (getenv "HOME")))
   :ensure nil)
                                         ; documentation
