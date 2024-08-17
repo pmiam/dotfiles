@@ -925,10 +925,11 @@ cookie."
   :ensure t)
                                         ; communication
 (use-package notmuch
-  :after comp-run
+  :after (comp-run message)
   :init
   (add-to-list 'native-comp-jit-compilation-deny-list "notmuch")
   :custom
+  (message-mail-user-agent 'notmuch-user-agent)
   (notmuch-search-oldest-first nil)
   (notmuch-always-prompt-for-sender t)
   :custom-face
@@ -945,12 +946,8 @@ cookie."
   :ensure t)
 
 (use-package message
-  :after notmuch
   :custom
   (message-directory (expand-file-name "mail" (getenv "HOME")))
-  :config
-  (require 'notmuch-mua)
-  (setq message-mail-user-agent 'notmuch-user-agent)
   :ensure nil)
                                         ; documentation
 (use-package man
