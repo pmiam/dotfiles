@@ -2,7 +2,7 @@ defaults
 tls on
 tls_starttls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
-logfile -
+syslog on
 
 account gpm
 host smtp.gmail.com
