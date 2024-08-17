@@ -946,15 +946,11 @@ cookie."
 
 (use-package message
   :after notmuch
+  :custom
+  (message-directory (expand-file-name "mail" (getenv "HOME")))
   :config
-  (add-hook 'message-setup-hook
-            '(lambda ()
-               (save-excursion
-                 (message-goto-from)
-                 (push-mark)
-                 (beginning-of-line)
-                 (delete-region (point) (mark))
-                 (message-insert-header 'from (notmuch-mua-prompt-for-sender)))))
+  (require 'notmuch-mua)
+  (setq message-mail-user-agent 'notmuch-user-agent)
   :ensure nil)
                                         ; documentation
 (use-package man
