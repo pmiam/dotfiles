@@ -18,3 +18,47 @@ Far :gpm-far:"[Gmail]/All Mail"
 Near :gpm-near:gpm
 Create Both
 Expunge Both
+
+IMAPStore palm-far
+Host outlook.office365.com
+Port 993
+TLSType IMAPS
+AuthMechs XOAUTH2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+User ***REMOVED***
+PassCmd poauth2.py\ ~/palm.token
+
+MaildirStore palm-near
+Subfolders Verbatim
+Path ~/mail/
+
+Channel palm-inbox
+Far :palm-far:INBOX
+Near :palm-near:palm
+Create Both
+Expunge Both
+
+Channel palm-drafts
+Far :palm-far:Drafts
+Near :palm-near:"palm/.drafts"
+Create Both
+Expunge Both
+
+Channel palm-sent
+Far :palm-far:"Sent Items"
+Near :palm-near:"palm/.sent"
+Create Both
+Expunge Both
+
+Channel palm-spam
+Far :palm-far:"Junk Email"
+Near :palm-near:"palm/.spam"
+Create Both
+Expunge Both
+
+Group palm
+Channel palm-inbox
+Channel palm-drafts
+Channel palm-sent
+Channel palm-spam
+
