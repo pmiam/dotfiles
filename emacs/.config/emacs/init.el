@@ -928,6 +928,7 @@ cookie."
   :after (comp-run message)
   :init
   (add-to-list 'native-comp-jit-compilation-deny-list "notmuch")
+  (require 'notmuch-mua)
   :custom
   (message-mail-user-agent 'notmuch-user-agent)
   (notmuch-search-oldest-first nil)
