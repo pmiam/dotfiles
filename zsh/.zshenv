@@ -27,3 +27,4 @@ export GNUPGHOME=${GNUPGHOME:="$XDG_CONFIG_HOME/gnupg"}
 export GOPATH=${GOPATH:="$XDG_DATA_HOME"/go}
 export GOMODCACHE=${GOMODCACHE:="$XDG_CACHE_HOME"/go-mod}
 export GOBIN=${GOBIN:="$HOME/.local/bin"}
+export BOGOFILTER_DIR="$XDG_DATA_HOME/bogofilter"
