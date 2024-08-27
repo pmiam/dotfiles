@@ -19,3 +19,11 @@ from ***REMOVED***
 auth xoauth2
 user ***REMOVED***
 passwordeval "poauth2.py ~/palm.token"
+
+account puni
+host smtp.office365.com
+port 587
+from ***REMOVED***
+auth xoauth2
+user ***REMOVED***
+passwordeval "poauth2.py ~/puni.token"
