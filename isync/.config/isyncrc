@@ -19,6 +19,8 @@ Near :gpm-near:gpm
 Create Both
 Expunge Both
 
+##########
+
 IMAPStore palm-far
 Host outlook.office365.com
 Port 993
@@ -62,3 +64,47 @@ Channel palm-drafts
 Channel palm-sent
 Channel palm-spam
 
+##########
+
+IMAPStore puni-far
+Host outlook.office365.com
+Port 993
+TLSType IMAPS
+AuthMechs XOAUTH2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+User ***REMOVED***
+PassCmd poauth2.py\ ~/puni.token
+
+MaildirStore puni-near
+Subfolders Verbatim
+Path ~/mail/
+
+Channel puni-inbox
+Far :puni-far:INBOX
+Near :puni-near:puni
+Create Both
+Expunge Both
+
+Channel puni-drafts
+Far :puni-far:Drafts
+Near :puni-near:"puni/.drafts"
+Create Both
+Expunge Both
+
+Channel puni-sent
+Far :puni-far:"Sent Items"
+Near :puni-near:"puni/.sent"
+Create Both
+Expunge Both
+
+Channel puni-spam
+Far :puni-far:"Junk Email"
+Near :puni-near:"puni/.spam"
+Create Both
+Expunge Both
+
+Group puni
+Channel puni-inbox
+Channel puni-drafts
+Channel puni-sent
+Channel puni-spam
