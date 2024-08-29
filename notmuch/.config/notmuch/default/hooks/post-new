@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+# enact filters on "new" polled messages
+notmuch tag +sent -new 'tag:new AND (\
+from:***REMOVED*** OR \
+from:***REMOVED*** OR \
+from:***REMOVED*** OR \
+from:***REMOVED*** OR \
+from:***REMOVED*** OR \
+from:***REMOVED*** OR \
+from:***REMOVED***)'
+
+notmuch search --output=messages 'tag:new' > /tmp/msgs
+notmuch search --output=files 'tag:new' |\
+    bogofilter -o0.7,0.7 -bt |\
+    paste - /tmp/msgs |\
+    awk '$1 ~ /S/ { print "-new +spam", "-", $3 }' |\
+    notmuch tag --batch
+
+# inbox remaining new messages
+notmuch tag +inbox -new 'tag:new'

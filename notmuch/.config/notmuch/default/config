@@ -7,7 +7,7 @@ primary_email=***REMOVED***
 other_email=***REMOVED***;***REMOVED***;panosm@purdue.alumni.edu;
 
 [new]
-tags=unread;inbox
+tags=new;
 
 [search]
 exclude_tags=deleted;spam
