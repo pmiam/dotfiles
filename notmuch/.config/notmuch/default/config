@@ -10,7 +10,7 @@ other_email=***REMOVED***;***REMOVED***;panosm@purdue.alumni.edu;
 tags=new;
 
 [search]
-exclude_tags=deleted;spam
+exclude_tags=deleted;spam;mute;
 
 [maildir]
 synchronize_flags=true
