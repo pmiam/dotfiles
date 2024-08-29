@@ -933,6 +933,123 @@ cookie."
   (message-mail-user-agent 'notmuch-user-agent)
   (notmuch-search-oldest-first nil)
   (notmuch-always-prompt-for-sender t)
+  (notmuch-fcc-dirs nil)
+  (notmuch-saved-searches
+   '((:name "inbox" :query "tag:inbox" :key "j")
+     (:name "vip" :query "\
+from:pantalos OR \
+from:farmaki OR \
+from:drosatos OR \
+from:jeff.rodriguez OR \
+from:loepke OR \
+from:kalfas OR \
+(from:manganaris AND NOT tag:sent)"
+            :key "v")
+     (:name "dev" :query "\
+from:atlas.engineer OR \
+from:golang.org OR \
+from:codecov OR \
+from:gitlab OR \
+from:nvidia OR \
+from:github"
+            :key "d")
+     (:name "lux" :query "\
+from:/newfields/ OR \
+from:michaelandrews OR \
+from:rangeusa"
+            :key "x")
+     (:name "club" :query "\
+from:orgsync.com OR \
+from:cindependentfilmfest OR \
+from:memorialhallotr OR \
+from:buv OR \
+from:linkedin OR \
+from:orangetheoryfitness OR \
+from:west.lafayette"
+            :key "c")
+     (:name "sub" :query "\
+from:dailywire OR \
+from:economist.com OR \
+from:substack OR \
+from:opentable OR \
+from:smrtft OR \
+from:medium OR \
+from:milewalk OR \
+from:porsche OR \
+from:pewpewtactical OR \
+from:christianity"
+            :key "s")
+     (:name "srv" :query "\
+from:duke.energy OR \
+from:dropbox.com OR \
+from:cosmote.gr OR \
+from:amtrak OR \
+from:wanderu OR \
+from:megabus OR \
+from:delta OR \
+from:google OR \
+from:microsoft OR \
+from:newegg OR \
+from:amazon"
+            :key "r")
+     (:name "edu" :query "\
+from:petereson OR \
+from:uc.edu OR \
+from:edX OR \
+from:purdue"
+            :key "e")
+     (:name "pro" :query "\
+from:mrs.org OR \
+from:tms.org OR \
+from:inl.gov OR \
+from:fnal.gov OR \
+from:bnl.gov OR \
+from:ornl.gov OR \
+from:rsc.org OR \
+from:aip.org OR \
+from:aippublishing.org OR \
+from:orcid.org"
+            :key "p")
+     (:name "pol" :query "\
+from:donaldjtrump OR \
+from:rnchq OR \
+from:conservativedirect"
+            :key "o")
+     (:name "bank" :query "\
+from:vanguard OR \
+from:experian OR \
+from:transunion OR \
+from:equifax OR \
+from:citi OR \
+from:citibank OR \
+from:prudential OR \
+from:discover OR \
+from:venmo OR \
+from:chase OR \
+from:53.com"
+            :key "b")
+     (:name "shop" :query "\
+from:freshthyme OR \
+from:humblebundle OR \
+from:pg.com OR \
+from:pampers OR \
+from:repfitness OR \p
+from:bulksupplements OR \
+from:macys OR \
+from:freakathlete OR \
+from:athome OR \
+from:leatherology OR \
+from:gornation OR \
+from:steampowered"
+            :key "h")
+     (:name "list" :query "\
+to:isync-devel OR body:isync-devel OR \
+to:evolution-users OR from:evolution-users OR \
+to:emacs-orgmode OR body:emacs-orgmode OR \
+to:archlinux OR from:archlinux OR \
+to:notmuchmail OR from:notmuchmail"
+            :key "l")
+     (:name "archive" :query "*" :key "a")))
   :custom-face
   (notmuch-wash-cited-text ((t (:foreground "lightblue"))))
   :bind (("C-x m" . notmuch))
