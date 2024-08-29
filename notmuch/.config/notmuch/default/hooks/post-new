@@ -1,0 +1,21 @@
+#!/usr/bin/env sh
+
+# enact filters on "new" polled messages
+notmuch tag +sent -new 'tag:new AND (\
+from:panos.manganaris@gmail.com OR \
+from:panosm@alumni.purdue.edu OR \
+from:pmangana@purdue.edu OR \
+from:manganpt@mail.uc.edu OR \
+from:panayotismanganaris@inl.gov OR \
+from:panayotismanganaris@foresthills.edu OR \
+from:panos@cinci.rr.com)'
+
+notmuch search --output=messages 'tag:new' > /tmp/msgs
+notmuch search --output=files 'tag:new' |\
+    bogofilter -o0.7,0.7 -bt |\
+    paste - /tmp/msgs |\
+    awk '$1 ~ /S/ { print "-new +spam", "-", $3 }' |\
+    notmuch tag --batch
+
+# inbox remaining new messages
+notmuch tag +inbox -new 'tag:new'
