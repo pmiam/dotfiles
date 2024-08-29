@@ -17,5 +17,9 @@ notmuch search --output=files 'tag:new' |\
     awk '$1 ~ /S/ { print "-new +spam", "-", $3 }' |\
     notmuch tag --batch
 
+notmuch tag +mute -new $(notmuch search --output=threads
+                         'tag:new AND \
+                          tag:mute')
+
 # inbox remaining new messages
 notmuch tag +inbox -new 'tag:new'
