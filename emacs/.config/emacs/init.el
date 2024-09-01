@@ -165,6 +165,9 @@ daemon can run at startup and it'll still work"
   ;; precaution when redirecting zsh IO
   (setq explicit-zsh-args '("--login" "--interactive")
         explicit-shell-file-name shell-file-name)
+  :bind (("C-x '" . shell)
+         :map shell-mode-map
+         ("M-r" . nil))
   :ensure nil)
 
 (use-package js
