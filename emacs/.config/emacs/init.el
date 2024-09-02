@@ -792,7 +792,9 @@ cookie."
   :ensure nil)
 
 (use-package org-roam
+  :after (comp-run)
   :init (setq org-roam-v2-ack t)
+  (add-to-list 'native-comp-jit-compilation-deny-list "org-roam")
   :custom
   (org-roam-directory (expand-file-name "roam" org-directory))
   (org-roam-capture-templates
@@ -966,6 +968,9 @@ from:orgsync.com OR \
 from:cindependentfilmfest OR \
 from:memorialhallotr OR \
 from:buv OR \
+from:instagram OR \
+from:X.com OR \
+from:snapchat OR \
 from:linkedin OR \
 from:orangetheoryfitness OR \
 from:west.lafayette"
@@ -984,12 +989,16 @@ from:christianity"
             :key "s")
      (:name "srv" :query "\
 from:duke.energy OR \
+from:dentistry.on.madison OR \
+from:godasco.com OR \
 from:dropbox.com OR \
 from:cosmote.gr OR \
 from:amtrak OR \
 from:wanderu OR \
 from:megabus OR \
+from:united.com OR \
 from:delta OR \
+from:rumble OR \
 from:google OR \
 from:microsoft OR \
 from:newegg OR \
@@ -1002,6 +1011,7 @@ from:edX OR \
 from:purdue"
             :key "e")
      (:name "pro" :query "\
+from:nanohub OR \
 from:mrs.org OR \
 from:tms.org OR \
 from:inl.gov OR \
