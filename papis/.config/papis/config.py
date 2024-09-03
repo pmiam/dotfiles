@@ -12,6 +12,8 @@ abbreviations = {
     "density functional theory":"DFT"
 }
 
+ignores = ["an?", "on", "the",]
+
 def smart_truncate(word:str, n:int=0) -> str:
     """truncate the input word if it is not a registered abbreviation
     1. walk :param:`n` characters, else return word
@@ -29,9 +31,9 @@ def smart_truncate(word:str, n:int=0) -> str:
     return word
 
 def abbrev_phrase(phrase:str) -> str:
-    """replace key phrases with an associated abbreviation"""
+    """replace key phrases from :data:`abbreviations` with values"""
     for pat, rep in abbreviations.items():
-        phrase = re.sub(pat, rep, phrase)
+        phrase = re.sub(pat, rep, phrase, flags=re.IGNORECASE)
     return phrase
 
 def crop_words(
