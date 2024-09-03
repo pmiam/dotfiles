@@ -5,3 +5,10 @@ bibtex-unicode = True
 
 [lit]
 dir = ~/doc/lit
+
+[mrc]
+dir = ~/doc/mrc
+use-git = True
+
+[dat]
+dir = ~/dat
