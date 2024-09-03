@@ -1,4 +1,7 @@
-import jinja2.Environment as Jenv
+from jinja2.environment import Environment
+
+env = Environment()
+
 import re
 import typing as t
 from functools import partial
@@ -51,3 +54,36 @@ def crop_words(
         nsel = nsel.append(ellipsis)
     cutter = partial(smart_truncate, n=n)
     return list(map(cutter, nsel))
+def abridge_sequence(
+        seq:str,
+        prologue_delim:t.Optional[str]=r"([:;!?]|--|-)",
+        epilogue_delim:t.Optional[str]=r"[.!?]",
+) -> str:
+    """abridge a sentence-like sequence
+    1. strip off words preceding chars matching :param:`prologue_delim`
+    2. strip off words following chars matching :param:`epilogue_delim`
+    3. abbreviate key phrases
+    4. drop words matching :data:`ignores` regexps
+    """
+    ipat = re.compile("(" + "|".join(ignores) + ")")
+    ppat = re.compile(prologue_delim) if prologue_delim else re.compile("^")
+    epat = re.compile(epilogue_delim) if epilogue_delim else re.compile("$")
+    # not very smart, but plays well with most well formed sequences
+    seq = re.split(ppat, seq, maxsplit=1)[-1].strip()
+    seq = re.split(epat, seq, maxsplit=1)[0].strip()
+    seq = abbrev_phrase(seq)
+    seq = re.sub(ipat, "", seq, re.IGNORECASE)
+    return seq
+
+def do_abridge_names(names:list) -> list:
+    names = abbrev_phrase(" ".join(names)).split(" ")
+    names = crop_words(names, 1, 1, 0, "etal")
+    return names
+
+def do_abridge_title(title:str) -> list:
+    title = abridge_sequence(title)
+    names = crop_words(title.split(" "), 5, 2, 5)
+    return names
+
+env.filters['abridge_names'] = do_abridge_names
+env.filters['abridge_title'] = do_abridge_title
