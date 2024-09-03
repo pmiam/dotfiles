@@ -55,7 +55,8 @@ def crop_words(
     if ellipsis and (total > len(nsel)):
         nsel = nsel.append(ellipsis)
     cutter = partial(smart_truncate, n=n)
-    return list(map(cutter, nsel))
+    return list(map(cutter, nsel)) #type:ignore
+
 def abridge_sequence(
         seq:str,
         prologue_delim:t.Optional[str]=r"([:;!?]|--|-)",
