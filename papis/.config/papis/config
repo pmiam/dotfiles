@@ -10,5 +10,8 @@ dir = ~/doc/lit
 dir = ~/doc/mrc
 use-git = True
 
+[pro]
+dir = ~/doc/pro
+
 [dat]
 dir = ~/dat
