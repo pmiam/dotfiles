@@ -12,6 +12,7 @@ use-git = True
 
 [pro]
 dir = ~/doc/pro
+use-cache = False
 
 [dat]
 dir = ~/dat
