@@ -706,9 +706,9 @@ tempel element."
   ;; GTD implementation
   (org-todo-keywords
    '((sequence
-      "TODO(t)"
+      "TODO(t!)"
       "NEXT(n!)"
-      "WAIT(w@/!)"
+      "WAIT(w@)"
       "|"
       "DONE(d!)"
       "INACTIVE(i@)"
