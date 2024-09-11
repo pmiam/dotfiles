@@ -350,8 +350,8 @@ does not use GNU ls, which is the only variant that supports
           (json "https://github.com/tree-sitter/tree-sitter-json")
           (elisp "https://github.com/Wilfred/tree-sitter-elisp")))
   :bind (:map global-map
-              ("C-c t i" . treesit-inspect-mode)
-              ("C-c t t" . treesit-explore-mode))
+              ("C-x M-t i" . treesit-inspect-mode)
+              ("C-x M-t t" . treesit-explore-mode))
   :ensure nil)
                                         ; completion framework
 (use-package vertico
