@@ -1086,6 +1086,16 @@ to:notmuchmail OR from:notmuchmail"
   (message-sendmail-f-is-evil t)
   (message-directory (expand-file-name "mail" (getenv "HOME")))
   :ensure nil)
+
+(use-package elfeed
+  :custom
+  (elfeed-feeds
+   (read (f-read (expand-file-name "feeds.eld" user-emacs-directory))))
+  :bind (("C-x M-m" . elfeed)
+         :map elfeed-search-mode-map
+         ("w" . elfeed-search-yank)
+         ("y" . nil))
+  :ensure t)
                                         ; documentation
 (use-package man
   :custom
