@@ -703,6 +703,8 @@ tempel element."
   (org-cycle-include-plain-lists nil)
   (org-preview-latex-default-process 'imagemagick)
   (org-image-actual-width '(800))
+  (org-columns-default-format
+   "%TODO %2PRIORITY %25ITEM(Task) %10EFFORT{est+} %CLOCKSUM %CLOCKSUM_T")
   ;; GTD implementation
   (org-todo-keywords
    '((sequence
