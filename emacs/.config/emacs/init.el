@@ -822,6 +822,12 @@ cookie."
       :target (file+head "${path}/%<%Y%m%d%H%M%S>-${slug}.org"
                          "#+title: ${title}")
       :unnarrowed t)
+     ("dp" "programming")
+     ("dpp" "languages" plain
+      (function (expand-file-name "lang.org" org-directory))
+      :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
+                         "#+title: ${title}")
+      :unnarrowed t)
      ("f" "default" plain "%?"
       :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
                          "#+title: ${title}")
