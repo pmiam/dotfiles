@@ -142,6 +142,8 @@ daemon can run at startup and it'll still work"
 (use-package haskell-ts-mode
   :after treesit
   :mode "\\.hs"
+  :config
+  (with-eval-after-load 'eglot (haskell-ts-setup-eglot))
   :ensure (:host github :repo "emacsmirror/haskell-ts-mode" :depth 1))
 
 (use-package ledger-mode
@@ -444,9 +446,14 @@ does not use GNU ls, which is the only variant that supports
   :ensure t)
 
 (use-package eglot
-  :after (:any python go-ts-mode elisp-mode)
+  :after (:any
+          python
+          go-ts-mode
+          haskell-ts-mode
+          elisp-mode)
   :hook ((python-base-mode . eglot-ensure)
          (go-ts-mode . eglot-ensure)
+         (haskell-ts-mode . eglot-ensure)
          (emacs-lisp-mode . eglot-ensure))
   :config
   ;; configure to increase performance OR reliability of completions
