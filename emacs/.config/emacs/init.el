@@ -142,7 +142,7 @@ daemon can run at startup and it'll still work"
 (use-package haskell-ts-mode
   :after treesit
   :mode "\\.hs"
-  :ensure t)
+  :ensure (:host github :repo "emacsmirror/haskell-ts-mode" :depth 1))
 
 (use-package ledger-mode
   :mode "\\.lgr"
