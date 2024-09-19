@@ -1104,6 +1104,7 @@ to:notmuchmail OR from:notmuchmail"
   :custom
   (elfeed-feeds
    (read (f-read (expand-file-name "feeds.eld" user-emacs-directory))))
+  (elfeed-search-remain-on-entry t)
   :bind (("C-x M-m" . elfeed)
          :map elfeed-search-mode-map
          ("w" . elfeed-search-yank)
