@@ -139,6 +139,11 @@ daemon can run at startup and it'll still work"
   (auto-save-interval 200)
   :ensure nil)
                                         ; user interface
+(use-package haskell-ts-mode
+  :after treesit
+  :mode "\\.hs"
+  :ensure t)
+
 (use-package ledger-mode
   :mode "\\.lgr"
   :custom
@@ -348,6 +353,7 @@ does not use GNU ls, which is the only variant that supports
           (css "https://github.com/tree-sitter/tree-sitter-css")
           (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
           (json "https://github.com/tree-sitter/tree-sitter-json")
+          (haskell "https://github.com/tree-sitter/tree-sitter-haskell")
           (elisp "https://github.com/Wilfred/tree-sitter-elisp")))
   :bind (:map global-map
               ("C-x M-t i" . treesit-inspect-mode)
