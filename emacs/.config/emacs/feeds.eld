@@ -11,6 +11,7 @@
  ("https://news.mit.edu/topic/mitnuclear-power-and-reactors-rss.xml" pro)
  ("https://github.com/LadybirdBrowser/ladybird/tree/master.atom" dev)
  ("https://github.com/FiloSottile/age/tree/main.atom" dev)
+ ("https://atlaspowershrugged.com/blogs/news.atom" sub)
  ("https://www.heritage.org/rss" pol)
  ("https://www.ohiogop.org/feed" pol)
  ("https://www.ans.org/news/feed" pro)
