@@ -816,7 +816,7 @@ cookie."
    '(("d" "dispatch")
      ("db" "bundled" plain "%?"
       :target (file+head "${path}/%<%Y%m%d%H%M%S>-${slug}.org"
-                         "$+title: ${title}")
+                         "#+title: ${title}")
       :unnarrowed t)
      ("f" "default" plain "%?"
       :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org"
