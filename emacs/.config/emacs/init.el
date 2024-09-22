@@ -330,6 +330,8 @@ does not use GNU ls, which is the only variant that supports
   :ensure nil)
 
 (use-package emacs
+  :custom
+  (default-input-method "greek")
   :bind (:map global-map
               ("C-S-d" . backward-delete-char-untabify)
               ("C-%" . replace-regexp)
