@@ -532,6 +532,8 @@ tempel element."
   :ensure t)
 
 (use-package jinx
+  :custom
+  (jinx-languages "en_US el_GR")
   :hook (emacs-startup . global-jinx-mode)
   :bind (("M-$" . jinx-correct)
          ("C-,"   . jinx-previous)
