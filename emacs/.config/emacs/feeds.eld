@@ -1,4 +1,5 @@
 (("https://www.iaea.org/feeds/topnews" nuc)
+ ("https://www.worldnuclearreport.org/spip.php?page=backend" nuc)
  ("https://www.eia.gov/rss/todayinenergy.xml" energy)
  ("https://www.eia.gov/rss/press_rss.xml" energy)
  ("https://www.eia.gov/rss/testimony.xml" energy)
