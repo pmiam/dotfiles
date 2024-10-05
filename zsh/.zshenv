@@ -20,7 +20,7 @@ export XDG_CONFIG_DIRS=${XGD_CONFIG_DIRS:="/etc/xdg"}
 
 # user variables
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-export LEDGER_FILE="$HOME/fin/journal.lgr"
+export LEDGER_FILE="$HOME/fin/main.lgr"
 
 # relocate directories not compliant with XDG spec
 export GNUPGHOME=${GNUPGHOME:="$XDG_CONFIG_HOME/gnupg"}
