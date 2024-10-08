@@ -28,3 +28,4 @@ export GOPATH=${GOPATH:="$XDG_DATA_HOME"/go}
 export GOMODCACHE=${GOMODCACHE:="$XDG_CACHE_HOME"/go-mod}
 export GOBIN=${GOBIN:="$HOME/.local/bin"}
 export BOGOFILTER_DIR="$XDG_DATA_HOME/bogofilter"
+export STACK_XDG=1
