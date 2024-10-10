@@ -988,6 +988,7 @@ cookie."
             (message-field-value "From"))
            nil)))
   (message-subject-trailing-was-query nil)
+  :hook (message-mode #'turn-on-orgtbl)
   :ensure nil)
 
 (use-package elfeed
