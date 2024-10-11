@@ -10,9 +10,47 @@ notmuch search --output=files 'tag:new' |\
     awk '$1 ~ /S/ { print "-new +spam", "-", $3 }' |\
     notmuch tag --batch
 
-notmuch tag +mute -new $(notmuch search --output=threads
-                         'tag:new AND \
-                          tag:mute')
+# auto tagging
+notmuch search --output=messages "tag:new AND ($(cat mybank.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +bank", "-", $1 }' > /tmp/msgs
 
-# inbox remaining new messages
-notmuch tag +inbox -new 'tag:new'
+notmuch search --output=messages "tag:new AND ($(cat myclub.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +club", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat mydev.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +dev", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat myedu.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +edu", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat mylist.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +list", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat mylux.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +lux", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat mypol.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +pol", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat mypro.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +pro", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat myshop.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +shop", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat mysrv.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +srv", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat mysub.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +sub", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=messages "tag:new AND ($(cat myvip.q | tr "\n" " "))" |\
+    awk '{ print "-new +inbox +vip", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=threads 'tag:new' |\
+    awk '{ print "-new +inbox", "-", $1 }' >> /tmp/msgs
+
+notmuch search --output=threads "tag:new AND tag:mute" |\
+    awk '{ print "-new +mute", "-", $1 }' >> /tmp/msgs
+
+notmuch tag --batch --input=/tmp/msgs
