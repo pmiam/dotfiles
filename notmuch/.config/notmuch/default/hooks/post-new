@@ -1,14 +1,7 @@
 #!/usr/bin/env sh
 
 # enact filters on "new" polled messages
-notmuch tag +sent -new 'tag:new AND (\
-from:***REMOVED*** OR \
-from:***REMOVED*** OR \
-from:***REMOVED*** OR \
-from:***REMOVED*** OR \
-from:***REMOVED*** OR \
-from:***REMOVED*** OR \
-from:***REMOVED***)'
+notmuch tag +sent -new "tag:new AND ($(cat mysent.q | tr "\n" " "))"
 
 notmuch search --output=messages 'tag:new' > /tmp/msgs
 notmuch search --output=files 'tag:new' |\
