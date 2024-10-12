@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+cd $XDG_CONFIG_HOME/notmuch/default/hooks
+
 # enact filters on "new" polled messages
 notmuch tag +sent -new "tag:new AND ($(cat mysent.q | tr "\n" " "))"
 
