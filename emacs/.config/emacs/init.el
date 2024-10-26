@@ -1000,7 +1000,7 @@ cookie."
   (message-directory (expand-file-name "mail" (getenv "HOME")))
   (message-signature
    "Panayotis Manganaris, M.Sc.
-I do not read encrypted mail. Contact ***REMOVED*** on Signal secure messenger.")
+Encrypted mail is not secure. Contact ***REMOVED*** on Signal secure messenger.")
   (message-subject-trailing-was-query nil)
   :ensure nil)
 
