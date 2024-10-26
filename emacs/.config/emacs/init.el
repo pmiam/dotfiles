@@ -829,17 +829,16 @@ cookie."
   :config
   (org-roam-db-autosync-mode 1)
   (require 'org-roam-protocol)
-  :bind ((:map global-map
-               ("C-c n f" . org-roam-node-find)
-               ("C-c n r" . org-roam-node-random))
-         (:map org-mode-map
-               ("C-c n i" . org-roam-node-insert)
-               ("C-c n o" . org-id-get-create)
-               ("C-c n t" . org-roam-tag-add)
-               ("C-c n a" . org-roam-alias-add)
-               ("C-c n b" . org-roam-ref-add)
-               ("C-c n l" . org-roam-buffer-toggle)
-               ("C-c n c" . org-roam-extract-subtree)))
+  :bind (("C-c n f" . org-roam-node-find)
+         ("C-c n r" . org-roam-node-random)
+         :map org-mode-map
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n o" . org-id-get-create)
+         ("C-c n t" . org-roam-tag-add)
+         ("C-c n a" . org-roam-alias-add)
+         ("C-c n b" . org-roam-ref-add)
+         ("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n c" . org-roam-extract-subtree))
   :ensure t)
 
 (use-package org-roam-ui
@@ -847,7 +846,12 @@ cookie."
   :custom
   (org-roam-ui-sync-theme t)
   (org-roam-ui-browser-function #'browse-url-chromium)
-  :bind ("C-c n g" . org-roam-ui-mode)
+  :bind (("C-c n g" . org-roam-ui-open)
+         :map org-mode-map
+         ("C-c n j" . org-roam-ui-node-local)
+         ("C-c n m" . org-roam-ui-remove-from-local-graph)
+         ("C-c n p" . org-roam-ui-add-to-local-graph)
+         ("C-c n z" . org-roam-ui-node-zoom))
   :ensure t)
 
 (use-package ob
