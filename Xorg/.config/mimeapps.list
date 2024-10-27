@@ -5,3 +5,4 @@ x-scheme-handler/mailto=ecmc.desktop
 text/html=nyxt.desktop
 x-scheme-handler/http=nyxt.desktop
 x-scheme-handler/https=nyxt.desktop
+x-scheme-handler/msteams=teams.desktop
