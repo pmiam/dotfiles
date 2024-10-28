@@ -1,7 +1,5 @@
-from jinja2.environment import Environment
-
-env = Environment()
-
+from papis.format import Jinja2Formatter as F
+# no need to init now, just modify class variable
 import re
 import typing as t
 from functools import partial
@@ -88,5 +86,5 @@ def do_abridge_title(title:str) -> list:
     names = crop_words(title.split(" "), 5, 2, 5)
     return names
 
-env.filters['abridge_names'] = do_abridge_names
-env.filters['abridge_title'] = do_abridge_title
+F.env.filters['abridge_names'] = do_abridge_names
+F.env.filters['abridge_title'] = do_abridge_title
