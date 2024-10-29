@@ -83,8 +83,7 @@ def do_abridge_names(names:list) -> list:
 
 def do_abridge_title(title:str) -> list:
     title = abridge_sequence(title)
-    names = crop_words(title.split(" "), 5, 2, 5)
-    return names
+    return crop_words(title.split(), 5, 2, 4)
 
 F.env.filters['abridge_names'] = do_abridge_names
 F.env.filters['abridge_title'] = do_abridge_title
