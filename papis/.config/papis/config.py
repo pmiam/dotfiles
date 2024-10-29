@@ -72,7 +72,7 @@ def abridge_sequence(
     # not very smart, but plays well with most well formed sequences
     seq = re.split(ppat, seq, maxsplit=1)[-1].strip()
     seq = re.split(epat, seq, maxsplit=1)[0].strip()
-    seq = abbrev_phrase(seq)
+    seq = abbrev_phrase(seq.lower())
     seq = re.sub(ipat, "", seq)
     return seq
 
