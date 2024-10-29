@@ -77,9 +77,8 @@ def abridge_sequence(
     return seq
 
 def do_abridge_names(names:list) -> list:
-    names = abbrev_phrase(" ".join(names)).split(" ")
-    names = crop_words(names, 1, 1, 0, "etal")
-    return names
+    names = abbrev_phrase(" ".join(names).lower()).split()
+    return crop_words(names, 1, 0, 0)
 
 def do_abridge_title(title:str) -> list:
     title = abridge_sequence(title)
