@@ -66,14 +66,14 @@ def abridge_sequence(
     3. abbreviate key phrases
     4. drop words matching :data:`ignores` regexps
     """
-    ipat = re.compile("(" + "|".join(ignores) + ")")
+    ipat = re.compile("(" + "|".join(ignores) + ")", flags=re.IGNORECASE)
     ppat = re.compile(prologue_delim) if prologue_delim else re.compile("^")
     epat = re.compile(epilogue_delim) if epilogue_delim else re.compile("$")
     # not very smart, but plays well with most well formed sequences
     seq = re.split(ppat, seq, maxsplit=1)[-1].strip()
     seq = re.split(epat, seq, maxsplit=1)[0].strip()
     seq = abbrev_phrase(seq)
-    seq = re.sub(ipat, "", seq, re.IGNORECASE)
+    seq = re.sub(ipat, "", seq)
     return seq
 
 def do_abridge_names(names:list) -> list:
