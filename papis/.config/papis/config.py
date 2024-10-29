@@ -49,7 +49,7 @@ def crop_words(
     """
     total = len(words)
     sel = count + tol
-    nsel = words[:total] if total <= sel else words[:sel]
+    nsel = words[:total] if total <= sel else words[:count]
     if ellipsis and (total > len(nsel)):
         nsel.append(ellipsis)
     cutter = partial(smart_truncate, n=n)
