@@ -23,9 +23,9 @@ def smart_truncate(word:str, n:int=0) -> str:
     """
     if n and word not in abbreviations.values():
         while word[n:]:
-            n = n+1
             if word[n] not in "aeiouy":
-                return word[:n]
+                return word[:n+1]
+            n = n+1
     return word
 
 def abbrev_phrase(phrase:str) -> str:
