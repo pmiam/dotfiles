@@ -1,16 +1,21 @@
+import os
+import papis.config
 from papis.format import Jinja2Formatter as F
 # no need to init now, just modify class variable
+
+import json
 import re
 import typing as t
 from functools import partial
 
 # abbrev values may be functions mapping match objects to strings
 # abbrev strings are expected to be one word
-abbreviations = {
-    "density functional theory":"DFT"
-}
-
-ignores = ["an?", "on", "the",]
+with open(os.path.join(
+        papis.config.get_config_folder(), "patterns.json"
+)) as fd:
+    patterns = json.loads(fd.read())
+abbreviations = patterns['abbreviations']
+ignores = patterns['ignores']
 
 def smart_truncate(word:str, n:int=0) -> str:
     """truncate the input word if it is not a registered abbreviation

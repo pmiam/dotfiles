@@ -1,0 +1,11 @@
+{
+    "ignores": [
+        "\\ban?\\b", "\\bon\\b", "\\bthe\\b", "\\band\\b", "\\bof\\b"
+    ],
+    "abbreviations": {
+        "density functional theory": "dft",
+        "monte carlo": "mc",
+        "quantum mc": "qmc",
+        "markov chain mc": "mcmc"
+    }
+}
