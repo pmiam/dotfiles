@@ -83,6 +83,13 @@ def abridge_sequence(
     seq = re.sub(ipat, "", seq)
     return seq
 
+def do_category(doc:D) -> list:
+    jrnl = doc["journal"] or doc["eprinttype"]
+    return jrnl
+
+def do_addtime(doc:D) -> str:
+    return re.sub(r"\W", "", doc["time-added"])
+
 def do_abridge_names(
         doc:D, count:int=1, tol:int=0,
         n:int=0, ellipsis:str|None=None
@@ -99,5 +106,7 @@ def do_abridge_title(
     title = abridge_sequence(title)
     return crop_words(title.split(), count, tol, n, ellipsis)
 
+F.env.filters['category'] = do_category
+F.env.filters['tadd'] = do_addtime
 F.env.filters['abridge_names'] = do_abridge_names
 F.env.filters['abridge_title'] = do_abridge_title
