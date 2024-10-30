@@ -2,6 +2,7 @@ import os
 import papis.config
 from papis.format import Jinja2Formatter as F
 # no need to init now, just modify class variable
+from papis.document import Document as D
 
 import json
 import re
@@ -83,16 +84,18 @@ def abridge_sequence(
     return seq
 
 def do_abridge_names(
-        names:list, count:int=1, tol:int=0,
+        doc:D, count:int=1, tol:int=0,
         n:int=0, ellipsis:str|None=None
 ) -> list:
+    names = [d["family"] for d in doc["author_list"]] or doc["author"].split() or doc["editor"].split()
     names = abbrev_phrase(" ".join(names).lower()).split()
     return crop_words(names, count, tol, n, ellipsis)
 
 def do_abridge_title(
-        title:str, count:int=5, tol:int=2,
+        doc:D, count:int=5, tol:int=2,
         n:int=4, ellipsis:str|None=None
 ) -> list:
+    title = doc["shorttitle"] or doc["title"]
     title = abridge_sequence(title)
     return crop_words(title.split(), count, tol, n, ellipsis)
 
