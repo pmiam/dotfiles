@@ -54,11 +54,12 @@ def crop_words(
     """
     total = len(words)
     sel = count + tol
-    nsel = words[:total] if total <= sel else words[:count]
-    if ellipsis and (total > len(nsel)):
-        nsel.append(ellipsis)
+    wsel = words[:total] if total <= sel else words[:count]
     cutter = partial(smart_truncate, n=n)
-    return list(map(cutter, nsel))
+    wcut = list(map(cutter, wsel))
+    if ellipsis and (total > len(wsel)):
+        wcut.append(ellipsis)
+    return wcut
 
 def abridge_sequence(
         seq:str,
