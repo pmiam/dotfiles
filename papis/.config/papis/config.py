@@ -81,13 +81,19 @@ def abridge_sequence(
     seq = re.sub(ipat, "", seq)
     return seq
 
-def do_abridge_names(names:list) -> list:
+def do_abridge_names(
+        names:list, count:int=1, tol:int=0,
+        n:int=0, ellipsis:str|None=None
+) -> list:
     names = abbrev_phrase(" ".join(names).lower()).split()
-    return crop_words(names, 1, 0, 0)
+    return crop_words(names, count, tol, n, ellipsis)
 
-def do_abridge_title(title:str) -> list:
+def do_abridge_title(
+        title:str, count:int=5, tol:int=2,
+        n:int=4, ellipsis:str|None=None
+) -> list:
     title = abridge_sequence(title)
-    return crop_words(title.split(), 5, 2, 4)
+    return crop_words(title.split(), count, tol, n, ellipsis)
 
 F.env.filters['abridge_names'] = do_abridge_names
 F.env.filters['abridge_title'] = do_abridge_title
