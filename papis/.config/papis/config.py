@@ -87,8 +87,12 @@ def do_category(doc:D) -> list:
     jrnl = doc["journal"] or doc["eprinttype"]
     return jrnl
 
-def do_addtime(doc:D) -> str:
-    return re.sub(r"\W", "", doc["time-added"])
+from datetime import date
+
+def do_pubtime(doc:D) -> str:
+    return date(
+        int(doc.get("year", 1)), int(doc.get("month", 1)), int(doc.get("day", 1))
+    ).strftime('%Y%m%d')
 
 def do_abridge_names(
         doc:D, count:int=1, tol:int=0,
@@ -107,6 +111,6 @@ def do_abridge_title(
     return crop_words(title.split(), count, tol, n, ellipsis)
 
 F.env.filters['category'] = do_category
-F.env.filters['tadd'] = do_addtime
+F.env.filters['tpub'] = do_pubtime
 F.env.filters['abridge_names'] = do_abridge_names
 F.env.filters['abridge_title'] = do_abridge_title
