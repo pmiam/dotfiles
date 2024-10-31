@@ -21,6 +21,8 @@ fi
 
 # aliases
 alias lgr="hledger"
+alias papis='papis '
+alias refgen='update -s ref.jinja2 "$(papis config -s lit --json | jq ".\"ref-format.jinja2\"")"'
 
 if [[ -x $commands[direnv] ]]; then
     eval "$(direnv hook zsh)"
