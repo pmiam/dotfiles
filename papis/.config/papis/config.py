@@ -83,10 +83,6 @@ def abridge_sequence(
     seq = re.sub(ipat, "", seq)
     return seq
 
-def do_category(doc:D) -> list:
-    jrnl = doc["journal"] or doc["eprinttype"]
-    return jrnl
-
 from datetime import date
 
 def do_pubtime(doc:D) -> str:
@@ -110,7 +106,6 @@ def do_abridge_title(
     title = abridge_sequence(title)
     return crop_words(title.split(), count, tol, n, ellipsis)
 
-F.env.filters['category'] = do_category
 F.env.filters['tpub'] = do_pubtime
 F.env.filters['abridge_names'] = do_abridge_names
 F.env.filters['abridge_title'] = do_abridge_title
