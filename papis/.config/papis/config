@@ -8,7 +8,7 @@ ref-word-separator = -
 [lit]
 dir = ~/doc/lit
 ref-format.jinja2 = {{ doc|abridge_names }}-{{ doc.year }}-{{ doc|abridge_title }}
-add-folder-name.jinja2 = {{ doc|category }}/{{ doc|tadd }}-{{ doc|abridge_names(1, 2, 0, "etal") }}
+add-folder-name.jinja2 = {{ doc|abridge_names(1, 2, 0, "etal") }}-{{ doc|tpub }}-{{ doc|abridge_title }}
 add-file-name.jinja2 = {{ doc|abridge_title }}
 
 [mrc]
