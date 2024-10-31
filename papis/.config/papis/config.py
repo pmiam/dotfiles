@@ -90,11 +90,19 @@ def do_pubtime(doc:D) -> str:
         int(doc.get("year", 1)), int(doc.get("month", 1)), int(doc.get("day", 1))
     ).strftime('%Y%m%d')
 
+def get_names(doc:D) -> list[str]:
+    if doc["author_list"]:
+        return [d["family"] for d in doc["author_list"]]
+    elif doc["author"]:
+        return ["-".join(n.split()[1:]) for n in doc["author"].split("and")]
+    elif doc["editor"]:
+        return ["-".join(n.split()[1:]) for n in doc["author"].split("and")]
+
 def do_abridge_names(
         doc:D, count:int=1, tol:int=0,
         n:int=0, ellipsis:str|None=None
 ) -> list:
-    names = [d["family"] for d in doc["author_list"]] or doc["author"].split() or doc["editor"].split()
+    names = get_names(doc)
     names = abbrev_phrase(" ".join(names).lower()).split()
     return crop_words(names, count, tol, n, ellipsis)
 
