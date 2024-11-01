@@ -27,3 +27,5 @@ alias refgen='update -s ref.jinja2 "$(papis config -s lit --json | jq ".\"ref-fo
 if [[ -x $commands[direnv] ]]; then
     eval "$(direnv hook zsh)"
 fi
+
+[ -n "$EAT_SHELL_INTEGRATION_DIR" ] && source "$EAT_SHELL_INTEGRATION_DIR/zsh"
