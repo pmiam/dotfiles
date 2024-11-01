@@ -162,20 +162,11 @@ daemon can run at startup and it'll still work"
   :mode "\\.go"
   :ensure nil)
 
-(use-package shell
-  :commands shell
-  :config
-  (defun zsh-shell-mode-setup ()
-    (setq-local comint-process-echoes t))
-  (add-hook 'shell-mode-hook #'zsh-shell-mode-setup)
-  :init
-  ;; precaution when redirecting zsh IO
-  (setq explicit-zsh-args '("--login" "--interactive")
-        explicit-shell-file-name shell-file-name)
-  :bind (("C-x '" . shell)
-         :map shell-mode-map
-         ("M-r" . nil))
-  :ensure nil)
+(use-package eat
+  :bind (("C-x '" . eat)
+         :map eat-mode-map
+         ("M-z" . eat-send-password))
+  :ensure t)
 
 (use-package js
   :init
