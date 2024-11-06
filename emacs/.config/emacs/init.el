@@ -171,6 +171,9 @@ daemon can run at startup and it'll still work"
   (eat-enable-auto-line-mode t)
   (eat-enable-yank-to-terminal t)
   :bind (("C-x '" . eat)
+         :map eat-line-mode-map
+         ("M-r" . nil)
+         ("M-z" . eat-send-password)
          :map eat-mode-map
          ("M-z" . eat-send-password))
   :ensure t)
