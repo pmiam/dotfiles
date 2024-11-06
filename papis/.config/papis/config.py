@@ -96,7 +96,7 @@ def get_names(doc:D) -> list[str]:
     elif doc["author"]:
         return ["-".join(n.split()[1:]) for n in doc["author"].split("and")]
     elif doc["editor"]:
-        return ["-".join(n.split()[1:]) for n in doc["author"].split("and")]
+        return ["-".join(n.split()[1:]) for n in doc["editor"].split("and")]
 
 def do_abridge_names(
         doc:D, count:int=1, tol:int=0,
