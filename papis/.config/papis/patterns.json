@@ -1,6 +1,6 @@
 {
     "ignores": [
-        "\\ban?\\b", "\\bon\\b", "\\bthe\\b", "\\band\\b", "\\bof\\b"
+        "\\ban?\\b", "\\bon\\b", "\\bthe\\b", "\\band\\b", "\\bof\\b", "\\bat\\b"
     ],
     "abbreviations": {
         "density functional theory": "dft",
