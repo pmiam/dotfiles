@@ -83,12 +83,17 @@ def abridge_sequence(
     seq = re.sub(ipat, "", seq)
     return seq
 
-from datetime import date
+from datetime import date, datetime
 
 def do_pubtime(doc:D) -> str:
-    return date(
-        int(doc.get("year", 1)), int(doc.get("month", 1)), int(doc.get("day", 1))
-    ).strftime('%Y%m%d')
+    if doc['date']:
+        return datetime.strptime(doc['date'], '%Y%m%d').strftime('%Y%m%d')
+    elif doc['year']:
+        return date(
+            int(doc.get("year", 1)), int(doc.get("month", 1)), int(doc.get("day", 1))
+        ).strftime('%Y%m%d')
+    else:
+        return "00000000"
 
 def get_names(doc:D) -> list[str]:
     if doc["author_list"]:
@@ -97,6 +102,8 @@ def get_names(doc:D) -> list[str]:
         return ["-".join(n.split()[1:]) for n in doc["author"].split("and")]
     elif doc["editor"]:
         return ["-".join(n.split()[1:]) for n in doc["editor"].split("and")]
+    else:
+        return ["anonymous"]
 
 def do_abridge_names(
         doc:D, count:int=1, tol:int=0,
