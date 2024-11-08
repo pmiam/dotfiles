@@ -249,8 +249,10 @@ daemon can run at startup and it'll still work"
   (add-to-list 'major-mode-remap-alist
                '(python-mode . python-auto-mode))
   :after treesit
-  :mode ("\\.py\\'" . python-mode)
+  :mode ("\\.py" . python-mode)
   :interpreter ("python" . python-mode)
+  :custom
+  (python-shell-interpreter-args "-i -q")
   :ensure nil)
 
 (use-package sudo-edit
