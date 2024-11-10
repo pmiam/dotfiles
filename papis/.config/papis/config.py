@@ -1,7 +1,7 @@
 import os
 import papis.config
 from papis.format import Jinja2Formatter as F
-from papis.document import Document as D
+import papis.document
 
 # no need to init now, just modify class variable
 env = F.get_environment()
@@ -87,7 +87,7 @@ def abridge_sequence(
 
 from datetime import date, datetime
 
-def do_pubtime(doc:D) -> str:
+def do_pubtime(doc:papis.document.Document) -> str:
     if doc['date']:
         return datetime.strptime(doc['date'], '%Y%m%d').strftime('%Y%m%d')
     elif doc['year']:
@@ -97,7 +97,7 @@ def do_pubtime(doc:D) -> str:
     else:
         return "00000000"
 
-def get_names(doc:D) -> list[str]:
+def get_names(doc:papis.document.Document) -> list[str]:
     if doc["author_list"]:
         return [d["family"] for d in doc["author_list"]]
     elif doc["author"]:
@@ -108,7 +108,7 @@ def get_names(doc:D) -> list[str]:
         return ["anonymous"]
 
 def do_abridge_names(
-        doc:D, count:int=1, tol:int=0,
+        doc:papis.document.Document, count:int=1, tol:int=0,
         n:int=0, ellipsis:str|None=None
 ) -> list:
     names = get_names(doc)
@@ -116,7 +116,7 @@ def do_abridge_names(
     return crop_words(names, count, tol, n, ellipsis)
 
 def do_abridge_title(
-        doc:D, count:int=5, tol:int=2,
+        doc:papis.document.Document, count:int=5, tol:int=2,
         n:int=4, ellipsis:str|None=None
 ) -> list:
     title = doc["shorttitle"] or doc["title"]
