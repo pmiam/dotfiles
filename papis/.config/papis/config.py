@@ -1,8 +1,10 @@
 import os
 import papis.config
 from papis.format import Jinja2Formatter as F
-# no need to init now, just modify class variable
 from papis.document import Document as D
+
+# no need to init now, just modify class variable
+env = F.get_environment()
 
 import json
 import re
@@ -121,6 +123,6 @@ def do_abridge_title(
     title = abridge_sequence(title)
     return crop_words(title.split(), count, tol, n, ellipsis)
 
-F.env.filters['tpub'] = do_pubtime
-F.env.filters['abridge_names'] = do_abridge_names
-F.env.filters['abridge_title'] = do_abridge_title
+env.filters['tpub'] = do_pubtime
+env.filters['abridge_names'] = do_abridge_names
+env.filters['abridge_title'] = do_abridge_title
