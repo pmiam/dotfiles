@@ -4,6 +4,7 @@ default-library = lit
 use-git = False
 bibtex-unicode = True
 ref-word-separator = -
+use-cache = False
 
 [lit]
 dir = ~/doc/lit
@@ -17,7 +18,6 @@ use-git = True
 
 [pro]
 dir = ~/doc/pro
-use-cache = False
 
 [dat]
 dir = ~/dat
