@@ -15,9 +15,8 @@ auto-doctor = True
 doctor-default-checks-extend = ["keys-missing", "biblatex-expected-keys"]
 bibtex-ignore-keys = ['day', 'corpus', 'isbn-13']
 
-[mrc]
-dir = ~/doc/mrc
-use-git = True
+[prj]
+dir = ~/doc/prj
 
 [pro]
 dir = ~/doc/pro
