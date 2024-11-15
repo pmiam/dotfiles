@@ -926,7 +926,7 @@ cookie."
   :custom
   (org-latex-pdf-process
    (list
-    "latexmk -f -pdf -%latex -bibtex -interaction=nonstopmode -shell-escape -output-directory=%o %f"))
+    "latexmk -f -pdflua -interaction=nonstopmode -shell-escape -output-directory=%o %f"))
   (org-latex-src-block-backend 'engraved)
   :ensure nil)
                                         ; reference management
