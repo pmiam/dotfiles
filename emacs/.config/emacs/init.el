@@ -929,18 +929,9 @@ cookie."
     "latexmk -f -pdflua -interaction=nonstopmode -shell-escape -output-directory=%o %f"))
   (org-latex-src-block-backend 'engraved)
   :ensure nil)
-                                        ; reference management
-(use-package oc
-  :custom
-  (org-cite-global-bibliography
-   (list (expand-file-name "lib.bib" org-directory)))
-  :after org
-  :ensure nil)
 
 (use-package citar
   :custom
-  (citar-bibliography org-cite-global-bibliography)
-  ;; citar-notes-paths not needed
   (org-cite-insert-processor 'citar)
   (org-cite-follow-processor 'citar)
   (org-cite-activate-processor 'citar)
