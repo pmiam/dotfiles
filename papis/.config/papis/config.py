@@ -114,18 +114,18 @@ def get_names(doc:papis.document.Document) -> list[str]:
 def do_abridge_names(
         doc:papis.document.Document, count:int=1, tol:int=0,
         n:int=0, ellipsis:str|None=None
-) -> list:
+) -> str:
     names = get_names(doc)
     names = abbrev_phrase(" ".join(names).lower()).split()
-    return crop_words(names, count, tol, n, ellipsis)
+    return "-".join(crop_words(names, count, tol, n, ellipsis))
 
 def do_abridge_title(
         doc:papis.document.Document, count:int=5, tol:int=2,
         n:int=4, ellipsis:str|None=None
-) -> list:
+) -> str:
     title = doc["shorttitle"] or doc["title"]
     title = abridge_sequence(title)
-    return crop_words(title.split(), count, tol, n, ellipsis)
+    return "-".join(crop_words(title.split(), count, tol, n, ellipsis))
 
 env.filters['tpub'] = do_pubtime
 env.filters['abridge_names'] = do_abridge_names
