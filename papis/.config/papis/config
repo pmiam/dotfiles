@@ -5,6 +5,7 @@ use-git = False
 bibtex-unicode = True
 ref-word-separator = -
 use-cache = False
+notes-name.jinja2 = {{ doc|abridge_title }}.xopp
 
 [lit]
 dir = ~/doc/lit
