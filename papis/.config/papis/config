@@ -22,5 +22,8 @@ dir = ~/doc/prj
 [pro]
 dir = ~/doc/pro
 
+[fig]
+dir = ~/pic/fig
+
 [dat]
 dir = ~/dat
