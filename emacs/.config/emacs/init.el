@@ -937,15 +937,6 @@ cookie."
   (org-cite-activate-processor 'citar)
   :after oc
   :ensure t)
-
-(use-package citar-org-roam
-  :custom
-  (citar-org-roam-note-title-template
-   "${title}\n#+filetags: :article:${tags keywords}\n#+author: ${author}\n")
-  :config
-  (citar-org-roam-mode 1)
-  :after (citar org-roam)
-  :ensure t)
                                         ; communication
 (use-package notmuch
   :after (comp-run message)
