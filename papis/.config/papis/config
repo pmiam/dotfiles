@@ -6,6 +6,7 @@ bibtex-unicode = True
 ref-word-separator = -
 use-cache = False
 notes-name.jinja2 = {{ doc|abridge_title }}.xopp
+editor = xdg-open
 
 [lit]
 dir = ~/doc/lit
