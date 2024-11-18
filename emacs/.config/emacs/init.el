@@ -935,6 +935,7 @@ cookie."
   (org-cite-insert-processor 'citar)
   (org-cite-follow-processor 'citar)
   (org-cite-activate-processor 'citar)
+  :bind (("C-c C-x @" . citar-insert-citation))
   :after oc
   :ensure t)
                                         ; communication
