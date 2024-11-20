@@ -36,11 +36,13 @@ def smart_truncate(word:str, n:int=0) -> str:
             n = n+1
     return word
 
-def abbrev_phrase(phrase:str) -> str:
+def abbrev_phrase(phrases:list[str]) -> list[str]:
     """replace key phrases from :data:`abbreviations` with values"""
-    for pat, rep in abbreviations.items():
-        phrase = re.sub(pat, rep, phrase, flags=re.IGNORECASE)
-    return phrase
+    rephrases = []
+    for phrase in phrases:
+        for pat, rep in abbreviations.items():
+             rephrases.append(re.sub(pat, rep, phrase, flags=re.IGNORECASE))
+    return rephrases
 
 def crop_words(
         words:list, count:int=1, tol:int=0,
@@ -81,7 +83,7 @@ def abridge_sequence(
     # not very smart, but plays well with most well formed sequences
     seq = re.split(ppat, seq, maxsplit=1)[-1].strip()
     seq = re.split(epat, seq, maxsplit=1)[0].strip()
-    seq = abbrev_phrase(seq.lower())
+    seq = abbrev_phrase([seq])[0]
     seq = re.sub(ipat, "", seq)
     return seq
 
@@ -116,7 +118,7 @@ def do_abridge_names(
         n:int=0, ellipsis:str|None=None
 ) -> str:
     names = get_names(doc)
-    names = abbrev_phrase(" ".join(names).lower()).split()
+    names = abbrev_phrase(names)
     return "-".join(crop_words(names, count, tol, n, ellipsis))
 
 def do_abridge_title(
