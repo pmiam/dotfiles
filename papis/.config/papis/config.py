@@ -102,14 +102,14 @@ def do_pubtime(doc:papis.document.Document) -> str:
 def get_names(doc:papis.document.Document) -> list[str]:
     if doc["author_list"] or doc["author"]:
         if doc["author_list"]:
-            return [d["family"] for d in doc["author_list"]]
+            return [d.get("family","") for d in doc["author_list"]]
         else:
-            return [d["family"] for d in papis.document.split_authors_name(doc["author"])]
+            return [d.get("family","") for d in papis.document.split_authors_name(doc["author"])]
     elif doc["editor_list"] or doc["editor"]:
         if doc["editor_list"]:
-            return [d["family"] for d in doc["editor_list"]]
+            return [d.get("family","") for d in doc["editor_list"]]
         else:
-            return [d["family"] for d in papis.document.split_authors_name(doc["editor"])]
+            return [d.get("family","") for d in papis.document.split_authors_name(doc["editor"])]
     else:
         return ["anonymous"]
 
