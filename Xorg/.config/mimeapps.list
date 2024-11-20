@@ -1,4 +1,5 @@
 [Default Applications]
+text/plain=ec.desktop
 inode/directory=ecfm.desktop
 application/pdf=sioyek.desktop
 x-scheme-handler/mailto=ecmc.desktop
