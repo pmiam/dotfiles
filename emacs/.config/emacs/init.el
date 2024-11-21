@@ -221,6 +221,11 @@ daemon can run at startup and it'll still work"
   :mode ("\\.mmd" "\\.mermaid")
   :ensure t)
 
+(use-package reftex-mode
+  :after tex-mode
+  :hook ((latex-mode . 'turn-on-reftex))
+  :ensure nil)
+
 (use-package tex-mode
   :mode ("\\.tex" . latex-mode)
   :config
