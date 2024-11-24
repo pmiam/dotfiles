@@ -992,8 +992,16 @@ cookie."
   (message-sendmail-f-is-evil t)
   (message-directory (expand-file-name "mail" (getenv "HOME")))
   (message-signature
-   "Panayotis Manganaris, M.Sc.
-Encrypted mail is not secure. Contact ptm.22 on Signal secure messenger.")
+   '(cond ((string-match
+            "panosm@alumni.purdue.edu"
+            (message-field-value "From"))
+           (concat
+            "Panayotis Manganaris, M.Sc.\n"
+            "Encrypted mail is not secure. Contact ptm.22 on Signal secure messenger."))
+          ((string-match
+            "panos.manganaris@gmail.com"
+            (message-field-value "From"))
+           nil)))
   (message-subject-trailing-was-query nil)
   :ensure nil)
 
