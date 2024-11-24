@@ -956,6 +956,7 @@ cookie."
   (notmuch-fcc-dirs nil)
   (notmuch-saved-searches
    '((:name "inbox" :query "tag:inbox" :key "j")
+     (:name "sent" :query "tag:sent" :key "t")
      (:name "spam" :query "tag:spam" :key "m")
      (:name "vip" :query "tag:vip" :key "v")
      (:name "dev" :query "tag:dev" :key "d")
