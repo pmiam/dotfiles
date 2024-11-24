@@ -4,7 +4,7 @@ path=/home/panos/mail
 [user]
 name=Panayotis Manganaris
 primary_email=panos.manganaris@gmail.com
-other_email=pmangana@purdue.edu;panosm@alumni.purdue.edu;
+other_email=panosm@alumni.purdue.edu;
 
 [new]
 tags=new;
