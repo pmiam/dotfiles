@@ -192,26 +192,6 @@ daemon can run at startup and it'll still work"
   :mode ("\\.js" . js-mode)
   :ensure nil)
 
-(use-package mhtml-mode
-  :init
-  ;; a dirty hack
-  (define-derived-mode html-auto-mode prog-mode "HTMLA"
-    "automatically decide which mode to use"
-    (if (treesit-ready-p 'html t)
-        (html-ts-mode) (mhtml-mode)))
-  (add-to-list 'major-mode-remap-alist
-               '(mhtml-mode . html-auto-mode))
-  ;; html-mode is mutual base mode
-  :after treesit
-  :mode ("\\.html" . mhtml-mode)
-  :config
-  (tempel-key "C-c C-c y" style-tag)
-  (tempel-key "C-c C-c k" link-tag)
-  (tempel-key "C-c C-c s" script-tag)
-  :bind (:map sgml-mode-map
-              ("C-c h" . html-html5-template))
-  :ensure nil)
-
 (use-package markdown-mode
   :mode "\\.md"
   :ensure t)
