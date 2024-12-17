@@ -6,6 +6,11 @@ export SAVEHIST=10000
 declare -U PATH path
 declare -U FPATH fpath
 
+PIXIBIN="$HOME/.pixi/bin"
+if [[ -d $PIXIBIN ]] && ((!$path[(Ie)$PIXIBIN])); then
+    export PATH="$PIXIBIN:$PATH"
+fi
+
 LOCALBIN="$HOME/.local/bin"
 if [[ -d $LOCALBIN ]] && ((!$path[(Ie)$LOCALBIN])); then
     export PATH="$LOCALBIN:$PATH"
