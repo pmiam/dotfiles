@@ -1,3 +1,7 @@
 #!/usr/bin/env sh
 
-/usr/bin/chromium --force-device-scale-factor=2
+if [ $# -eq 0 ]; then
+    /usr/bin/chromium --force-device-scale-factor=2
+else
+    /usr/bin/chromium --force-device-scale-factor=2 $@
+fi
