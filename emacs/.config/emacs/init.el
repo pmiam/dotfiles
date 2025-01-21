@@ -778,6 +778,7 @@ cookie."
   (setq org-format-latex-options
         (plist-put org-format-latex-options :scale 2.5))
   :bind (:map org-mode-map
+              ("C-c C-x h" . org-fold-hide-drawer-all)
               ("C-c C-x s" . pm/insert-stats-cookie)
               ("M-[" . org-backward-paragraph)
               ("M-]" . org-forward-paragraph)
