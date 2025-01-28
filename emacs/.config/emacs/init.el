@@ -772,7 +772,9 @@ cookie."
   (setf (plist-get (alist-get 'imagemagick org-preview-latex-process-alist) :latex-compiler)
         '("cd %o && pdflatex -interaction nonstopmode -output-directory %o --shell-escape %f"))
 
-  (add-to-list 'org-latex-packages-alist '("" "ptm" t ("pdflatex")))
+  (add-to-list 'org-latex-packages-alist '("" "moremath" t))
+  (add-to-list 'org-latex-packages-alist '("" "tensor" t))
+  (add-to-list 'org-latex-packages-alist '("" "derivative" t))
   (add-to-list 'org-latex-packages-alist '("" "tikz" t))
 
   (setq org-format-latex-options
