@@ -1,10 +1,10 @@
-#+TITLE: personal configuration for generic system tenancy
+#+TITLE: My User Home
 
-This repository contains discrete packages of personal configuration
-files. Each package is named after the tool it corresponds to.
+Configuration and scripts intended for use with [[https://www.chezmoi.io/][chezmoi]].
 
-The namesake tools are not included.
-
-These packages are to be managed using [[https://www.gnu.org/software/stow/][GNU stow]], installed separately.
-
-A sub-stow repository for portable =/etc/= files is also included.
+I'm ready to move into
+- [X] GNU/Linux
+- [ ] FreeBSD
+- [ ] OpenBSD
+- [ ] macOS
+- [ ] Windows
