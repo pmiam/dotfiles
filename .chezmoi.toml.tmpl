@@ -1,0 +1,8 @@
+# -*- mode: conf-toml; -*-
+
+[merge]
+command = "emacs"
+args = [
+     "-q", "-f", "ediff3-files-command",
+     "{{`{{`}} .Destination }}", "{{`{{`}} .Source }}", "{{`{{`}} .Target }}"
+]
