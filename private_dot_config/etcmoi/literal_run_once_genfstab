@@ -352,9 +352,13 @@ devices mounted under the mountpoint specified by the given root.
 EOF
 }
 
-if [[ -z $1 || $1 = @(-h|--help) ]]; then
+if [[ $1 = @(-h|--help) ]]; then
   usage
-  exit $(( $# ? 0 : 1 ))
+  exit 0
+elif [[ -z $1 ]]; then
+  bytag=UUID
+  write_fstab > fstab
+  exit 0
 fi
 
 while getopts ':f:LPpt:U' flag; do
@@ -491,10 +495,3 @@ done
 }
 
 # vim: et ts=2 sw=2 ft=sh:
-
-awk 'BEGIN{OFS=FS=" "}
-NR==FNR {
- for (i=1;i<=NF;i++) w[i]=(length($i)+1>w[i] ? length($i)+1 : w[i]); next
-} {
- for (i=1;i<=NF;i++) printf("%-*s%s", w[i], $i, i==NF ? ORS : OFS)
-}' <(write_fstab) <(write_fstab)
