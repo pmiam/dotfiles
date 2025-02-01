@@ -11,3 +11,12 @@ args = [
      "-q", "-f", "ediff3-files-command",
      "{{`{{`}} .Destination }}", "{{`{{`}} .Source }}", "{{`{{`}} .Target }}"
 ]
+
+[hooks.add.pre]
+    command = "{{- .chezmoi.sourceDir -}}/.pre_add.sh"
+
+[hooks.apply.post]
+    command = "{{- .chezmoi.sourceDir -}}/.post_update_apply.sh"
+
+[hooks.update.post]
+    command = "{{- .chezmoi.sourceDir -}}/.post_update_apply.sh"
