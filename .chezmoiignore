@@ -2,3 +2,4 @@ README.org
 {{ if not (has .chezmoi.hostname .myHosts) }}
 private_dot_config/etcmoi
 {{ end }}
+housekey.age

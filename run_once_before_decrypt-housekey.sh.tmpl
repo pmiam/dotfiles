@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ ! -f "${HOME}/.config/chezmoi/housekey" ]; then
+    mkdir -p "${HOME}/.config/chezmoi"
+    age -d -i "{{ .chezmoi.sourceDir }}/pws/ids" -o "${HOME}/.config/chezmoi/housekey" "{{ .chezmoi.sourceDir }}/housekey.age"
+    chmod 600 "${HOME}/.config/chezmoi/housekey"
+fi
