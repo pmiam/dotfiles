@@ -7,6 +7,9 @@ select-word-style bash
 # session-specific variables
 export GPG_TTY=$(tty)
 export EDITOR=ec
+export PASSAGE_DIR="$HOME/pws"
+export PASSAGE_IDENTITIES_FILE="$HOME/pws/ids"
+export PASSAGE_EXTENSIONS_DIR="$HOME/pws/xts"
 
 # options
 unsetopt beep
@@ -21,6 +24,7 @@ fi
 
 # aliases
 alias lgr="hledger"
+alias pass="passage"
 alias papis='papis '
 alias refgen='update -s ref.jinja2 "$(papis config -s lit --json | jq ".\"ref-format.jinja2\"")"'
 
