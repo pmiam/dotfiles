@@ -2,7 +2,11 @@
 	email = {{ .gpmMail }}
 	name = Panayotis Manganaris
 [credential]
+{{- if (has .chezmoi.hostname .myHosts) }}
+	helper = store
+{{- else }}
 	helper = cache
+{{- end }}
 [init]
 	defaultBranch = master
 [filter "lfs"]
