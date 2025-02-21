@@ -11,3 +11,13 @@ args = [
      "-q", "-f", "ediff3-files-command",
      "{{`{{`}} .Destination }}", "{{`{{`}} .Source }}", "{{`{{`}} .Target }}"
 ]
+
+[data]
+gpmMail = {{ output "passage" "show" "mine/com.google" | regexFind "email:.*" | trimPrefix "email:" | quote }}
+ncsuMail = {{ output "passage" "show" "mine/edu.ncsu" | regexFind "email:.*" | trimPrefix "email:" | quote }}
+palmMail = {{ output "passage" "show" "mine/edu.purdue.alumni" | regexFind "email:.*" | trimPrefix "email:" | quote }}
+ucMail = {{ output "passage" "show" "mine/edu.uc" | regexFind "email:.*" | trimPrefix "email:" | quote }}
+rrMail = {{ output "passage" "show" "mine/com.rr" | regexFind "email:.*" | trimPrefix "email:" | quote }}
+puniMail = {{ output "passage" "show" "mine/edu.purdue" | regexFind "email:.*" | trimPrefix "email:" | quote }}
+inlMail = {{ output "passage" "show" "mine/gov.inl" | regexFind "email:.*" | trimPrefix "email:" | quote }}
+fhsdMail = {{ output "passage" "show" "mine/edu.foresthills" | regexFind "email:.*" | trimPrefix "email:" | quote }}
