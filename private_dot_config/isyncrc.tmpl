@@ -6,7 +6,7 @@ Port 993
 TLSType IMAPS
 AuthMechs XOAUTH2
 CertificateFile /etc/ssl/certs/ca-certificates.crt
-User ***REMOVED***
+User {{ .gpmMail }}
 PassCmd poauth2.py\ ~/gpm.token
 
 MaildirStore gpm-near
@@ -27,7 +27,7 @@ Port 993
 TLSType IMAPS
 AuthMechs XOAUTH2
 CertificateFile /etc/ssl/certs/ca-certificates.crt
-User ***REMOVED***
+User {{ .palmMail }}
 PassCmd poauth2.py\ ~/palm.token
 
 MaildirStore palm-near
