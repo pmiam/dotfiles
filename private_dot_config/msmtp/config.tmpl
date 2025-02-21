@@ -7,15 +7,15 @@ syslog on
 account gpm
 host smtp.gmail.com
 port 587
-from ***REMOVED***
+from {{ .gpmMail }}
 auth oauthbearer
-user ***REMOVED***
+user {{ .gpmMail }}
 passwordeval "poauth2.py ~/gpm.token"
 
 account palm
 host smtp.office365.com
 port 587
-from ***REMOVED***
+from {{ .palmMail }}
 auth xoauth2
-user ***REMOVED***
+user {{ .palmMail }}
 passwordeval "poauth2.py ~/palm.token"

@@ -13,4 +13,4 @@ export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
 
 #start dwm script + dbus session
-dbus-launch ***REMOVED***/.local/bin/startdwm.sh
+dbus-launch {{ .chezmoi.destDir }}/.local/bin/startdwm.sh

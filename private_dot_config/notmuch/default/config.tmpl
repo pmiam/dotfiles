@@ -1,10 +1,10 @@
 [database]
-path=***REMOVED***/mail
+path={{ .chezmoi.destDir }}/mail
 
 [user]
 name=Panayotis Manganaris
-primary_email=***REMOVED***
-other_email=***REMOVED***;
+primary_email={{ .gpmMail }}
+other_email={{ .palmMail }};
 
 [new]
 tags=new;
