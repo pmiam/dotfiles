@@ -7,5 +7,6 @@ esac
 
 if $HANDLE_ETCMOI; then
     echo "applying to /etc!"
-    $CHEZMOI_ARGS -D /etc -S $CHEZMOI_HOME_DIR/.config/etcmoi
+    $CHEZMOI_ARGS --persistent-state $CHEZMOI_HOME_DIR/.config/etcmoistate.boltdb\
+                  -D /etc -S $CHEZMOI_HOME_DIR/.config/etcmoi
 fi
