@@ -123,6 +123,8 @@ daemon can run at startup and it'll still work"
           (remove-hook 'after-make-frame-functions 'restore-desktop))))
     (add-hook 'after-make-frame-functions 'restore-desktop))
   :custom
+  (user-full-name "Panayotis Manganaris")
+  (user-mail-address {{ .gpmMail | quote }})
   (visible-bell t)
   (inhibit-startup-screen t)
   (desktop-restore-forces-onscreen nil)
